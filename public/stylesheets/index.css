@@ -1,0 +1,163 @@
+ /* Styling for the overlay */
+ .overlay {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.overlay button{
+
+transform: translateX(15em);
+padding: .5em;
+background-color: darkgoldenrod;
+}
+
+.overlay button:hover{
+    background-color: black;
+    color:#fff;
+}
+
+/* Styling for the primary model */
+.primary-model {
+        position: fixed;
+        top: 7em;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(250, 250, 250, 0.5);
+        z-index: 999;
+        overflow: auto; 
+}
+
+/* Styling the dropdown layout for Research */
+.checkhack {
+    display: none;
+  }
+  
+.menu {
+    display: none;
+  }
+  
+  .resLabel button:hover,
+.checkhack:checked + #researchMenu {
+  position: absolute;
+  list-style-type: none;
+  display: block;
+  background-color:blanchedalmond;
+  box-shadow: 0 1em 0.5em rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transform: translateX(3em);
+  justify-content: left;
+  padding: 1.5em;
+}
+
+.resLabel {
+  position: relative;
+  padding: auto;
+}
+
+.resLabel label {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #ddd;
+}
+
+.menu a {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+  color: #000000;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+}
+
+.menu a:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+.nav-button {
+    margin-right: 2em; 
+  }
+.nav-button:hover{
+  background: burlywood url('../images/trial.jpg') repeat center center;
+  color: #fff;
+}
+
+.nav-button label{
+    color: #000000;
+}
+
+.nav-button a:visited{
+    color: #2ea5ba;
+    
+}
+
+/* Styling the dropdown layout for Plugins layout */
+
+.plugLabel button:hover,
+.checkhack:checked + #pluginsMenu {
+position: absolute;
+list-style-type: none;
+display: block;
+background-color:blanchedalmond;
+box-shadow: 0 1em 0.5em rgba(0, 0, 0, 0.2);
+z-index: 1;
+transform: translateX(5em);
+justify-content: left;
+padding: 1.5em;
+}
+
+.plugLabel:hover{
+    padding: .5em;
+    text-align: left;
+}
+
+/* Styling the dropdown for external links  */
+
+.insert button:hover,
+.checkhack:checked + #linksMenu {
+position: absolute;
+list-style-type: none;
+display: block;
+background-color:blanchedalmond;
+box-shadow: 0 1em 0.5em rgba(0, 0, 0, 0.2);
+z-index: 1;
+transform: translateX(5em);
+justify-content: left;
+padding: 1.5em;
+}
+
+
+/* Styling the dropdown for search option */
+
+.search button:hover,
+.checkhack:checked + #searchMenu {
+position: absolute;
+list-style-type: none;
+display: block;
+background-color:blanchedalmond;
+box-shadow: 0 1em 0.5em rgba(0, 0, 0, 0.2);
+z-index: 1;
+transform: translateX(5em);
+justify-content: left;
+padding: 1.5em;
+}

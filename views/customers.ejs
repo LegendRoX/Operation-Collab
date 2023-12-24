@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+</head>
+<body>
+    <h1>
+        Customers
+    </h1>
+    <ul>
+        <% customerDetailsArray.forEach(customer =>{ %>
+            <li><%=customer.firstName%></li>
+            <li><%=customer.lastName%></li>
+            <li><%=customer.shippingAddress%></li>
+            <li><%=customer.postalCode%></li>
+        <%});%>
+    </ul>
+
+</body>
+</html>

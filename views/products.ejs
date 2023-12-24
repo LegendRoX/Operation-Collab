@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/products.css">
+</head>
+<body>
+    <h1>
+        Products
+    </h1>
+    <div class = "dropdown"></div>
+    <ol>
+        <% productDetailsArray.forEach(product => { %>
+            <li>
+                <button class = "pTitle"><%= product.name %></button>
+                <ul>
+                    <li>
+                        <button class = "onTrial" style="display: none" >Details</button>
+                        <p class="extended" style="display: none">
+                            <%= product.productDetails %>
+                        </p>
+                    </li>
+                    <li>
+                        <button class="onTrial" style="display: none">Specifications</button>
+                        <ol type="A" class="extended" style="display: none">
+                            <li><%= product.specifications[0] %></li>
+                            <li><%= product.specifications[1] %></li>
+                            <li><%= product.specifications[2] %></li>
+                        </ol>
+                    </li>
+                    <li class = "extended" style = "display: none"><%= product.price %></li>
+                    <li class="extended" style="display: none"><%= product.quantity %></li>
+                </ul>
+            </li>
+        <% }); %>
+    </ol>
+    
+    <script>
+        document.querySelectorAll(".pTitle").forEach(function(button){
+            button.addEventListener('click', function(){
+                let dropList = this.closest("li")
+                let otherButtons  = dropList.querySelectorAll(".onTrial")
+
+                otherButtons.forEach(function(button){
+                        button.style.display = button.style.display === "none"? "block" : "none"
+                })
+            })
+        })
+        document.querySelectorAll(".onTrial").forEach(function(button){
+            button.addEventListener('click', function(){
+                let list = this.closest("li")
+                let extendedItems = list.querySelector(".extended")
+
+                extendedItems.style.display = extendedItems.style.display === "none"? "block": "none"
+            })
+        })
+    </script>
+</body>
+</html>

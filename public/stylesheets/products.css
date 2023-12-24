@@ -1,0 +1,59 @@
+.container {
+    display: inline-block;
+    margin: -13em;
+}
+
+.container ol {
+    list-style-type: none;
+    margin: 1em;
+    padding: 0.2em;
+    display: inline-block;
+}
+
+.container li {
+    border: 1px solid #ddd;
+    margin-bottom: 2em;
+    padding: 10px;
+    display: inline;
+}
+
+.onTrial,
+.extended{
+    margin: 0;
+    padding: 1em;
+    display: none;
+    border: 1px solid #ddd;
+    margin-bottom: 2em;
+}
+
+ol.type-A {
+    list-style-type: upper-alpha;
+    lighting-color: antiquewhite;
+    margin: 1em;
+    padding: .2em;
+    display: block;
+}
+
+h1 {
+    color: #333;
+}
+
+ul {
+    padding: 0;
+   display: inline;
+}
+
+p {
+    margin: 0;
+}
+
+.pTitle{
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/index.css">
+</head>
+<body>
+    <h1>
+        <%=title%>
+    </h1>
+    <p><%=title%> Robotics</p>
+<!-- Trial overlay for discounts/updates -->
+    <div class = "overlay">
+        <h2>Welcome to Alpha Robotics</h2>
+        <p>
+            Avail your 50% off today! Click the link below
+            and get the qr code.
+        </p>
+        <img src="/images/overlay.gif" alt="Robot waving" width="100%">
+        <button type="submit">Avail</button>
+    </div>
+    <!-- Main model -->
+    <div class="primary-model">
+
+<!-- Home Button -->
+  <button class="nav-button">
+    <a href="/">Home</a>
+  </button>
+
+<!-- Research button -->
+  <button class="nav-button resLabel" >
+    <label for="researchToggle">Research</label>
+  </button>
+  <input id="researchToggle" class="checkhack" type="checkbox" />
+  <ul class="menu" id="researchMenu">
+    <li><a href="/sql/customers">Customers</a></li>
+    <li><a href="/sql/products">Products</a></li>
+    <li><a href="/sql/payments">Payments</a></li>
+  </ul>
+
+  <!-- Plugin button -->
+  <button class="nav-button plugLabel">
+    <label for="pluginsToggle">Plugins</label>
+  </button>
+  <input id="pluginsToggle" class="checkhack" type="checkbox" />
+  <ul class="menu" id="pluginsMenu">
+    <li>
+      <!-- Search for plugins -->
+        <button class="nav-button search" >
+            <label for="searchToggle">Search for plugins</label>
+          </button>
+          <input id="searchToggle" class="checkhack" type="checkbox" />
+          <ul class="menu" id="searchMenu">
+            <li>
+                <input type="search" name="Search Plugins" id="searchBox">
+                <button onclick="searchPlugins('searchResults')">Search</a></button>
+                <div id="searchResults" style="display: none;">
+                </div>
+
+            </li>
+          </ul>
+       
+    </li>
+    <li>
+        <!-- External Links dropdown -->
+        <button class="nav-button insert" >
+            <label for="extentToggle">External Links</label>
+          </button>
+          <input id="extentToggle" class="checkhack" type="checkbox" />
+          <ul class="menu" id="linksMenu">
+            <li><a href="https://github.com/sorrycc/awesome-javascript?tab=readme-ov-file#bundlers">Github</a></li>
+            <li><a href="https://p5js.org/libraries/">p5Js</a></li>
+            <li><a href="https://kinsta.com/blog/javascript-libraries/">Kinsta</a></li>
+          </ul>
+
+    </li>
+    <li><a href="/sql/payments">Payments</a></li>
+  </ul>
+
+  <h2>Customers</h2>
+
+  <h2>Products</h2>
+
+  <h2>Payments</h2>
+
+  <!-- Overlay for no results message -->
+  <div id="noResultsOverlay" style="display: none;">
+      <h2>No plugins found!</h2>
+      <p>Sorry, no plugins match your search criteria.</p>
+      <button onclick="hideNoResultsOverlay()">OK</button>
+  </div>
+
+</div>
+<script src="/data/jsPlugins.js"></script>
+<script>
+    
+//Disabling buttons in background
+window.addEventListener('load', function(){
+    document.querySelector(".overlay").style.display = "block"
+    document.querySelector(".primary-model").style.display = "block"
+  
+    document.body.style.pointerEvents = "none"
+    document.querySelector(".overlay").style.pointerEvents = "auto"
+    });
+  
+    //Loading the main page
+    document.querySelector('.overlay button').addEventListener('click', function(){
+    document.querySelector('.overlay').style.display = "none"
+    document.querySelector(".primary-model").style.display = "block"
+  
+    document.body.style.pointerEvents = "auto"
+    });
+  
+// //Handling search plugin submit query
+
+// document.querySelector('.searchMenu button').addEventListener('submit', function(){
+//   searchPlugins()
+// })
+
+function searchPlugins(){
+  let searchBox = document.getElementById('searchBox')
+  let searchTerm = searchBox.value.trim()
+
+  let searchResultsDiv = document.getElementById('searchResults')
+  let noResultsDiv = document.getElementById('noResultsOverlay')
+
+  searchResultsDiv.innerHTML = " "
+  var result = null
+
+  for(let i = 0; i < testPlugins.length; i++) {
+    if (searchTerm === testPlugins[i].name) {
+        result = testPlugins[i]
+        break
+    }
+  }
+  console.log(searchTerm)
+  console.log(result)
+  
+  if(result != null)
+  {
+    let pluginDetails = document.createElement('div')
+
+    pluginDetails.innerHTML = "<h2>" + result.name + "</h2>"
+                              + "<br/> <p>" + result.website + "</p><br/>"
+                              + "<p>" + result.description + "</p><br/>"
+                              + "<p>" + result.exampleUsage + "</p><br/>"
+    
+    searchResultsDiv.appendChild(pluginDetails)
+
+  }
+  else{
+    noResultsDiv.style.display = "block"
+  }
+  searchResultsDiv.style.display = "block";
+}
+
+function hideNoResultsOverlay(){
+  document.getElementById('noResultsOverlay').style.display = "none"
+}
+  
+  
+</script>
+</body>
+</html>
