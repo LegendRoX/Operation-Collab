@@ -38,17 +38,17 @@ router.get("/search/results", async(req,res, next)=> {
 
 //Building an asynchronous function to fetch searchResults
 
-// async function searchPlugins(name){
-//   if(name === testPlugins.name)
-//   {
-//     let index = testPlugins.indexOf(name)
-//   }
-//   else{
-//     res.send("No matches for " + name + " were found.")
-//   }
-//   let position = testPlugins[index]
-//   return position;
-// }
+async function searchPlugins(name){
+  if(name === testPlugins.name)
+  {
+    let index = testPlugins.indexOf(name)
+  }
+  else{
+    res.send("No matches for " + name + " were found.")
+  }
+  let position = testPlugins[index]
+  return position;
+}
 function arrayObjectIndexOf(myArray, searchTerm, property) {
   for(var i = 0, len = myArray.length; i < len; i++) {
       if (myArray[i][property] === searchTerm) return i;
